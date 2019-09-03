@@ -1,0 +1,14 @@
+#scrollTop{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	opacity: 0;
+	transition: all .5s ease-in;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+body{
+	height: 3000px;
+}
