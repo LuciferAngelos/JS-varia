@@ -20,3 +20,5 @@ function goUp(){
 		clearTimeout(timeOut);
 	}
 }
+
+console.log(document.querySelector('#color').value)
