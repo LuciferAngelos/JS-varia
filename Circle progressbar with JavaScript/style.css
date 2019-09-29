@@ -1,0 +1,21 @@
+html, body{
+	background-color: #64B5F6;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	position: relative;
+	height: 100%;
+}
+
+.progress-ring__circle{
+/*	stroke-dasharray: 50 10;	
+	stroke-dashoffset: 100;		/*сдвигаем линию старта*/
+	transform-origin: center;
+	transform: rotate(-90deg);
+	transition: stroke-dashoffset .3s;
+}
