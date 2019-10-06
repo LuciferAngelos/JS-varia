@@ -1,0 +1,6 @@
+.block-1, .block-2{
+    width: 250px;
+    height: 250px;
+    border: 3px solid red;
+    margin: 10px;
+}
