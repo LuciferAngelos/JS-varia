@@ -1,0 +1,10 @@
+.one, .two, .three, .four, .five, .out-1, .out-2, .out-3, .out-4, .out-5{
+	width: 150px;
+	height: 150px;
+	border: 2px solid blue;
+	margin-right: 20px;
+	margin-top: 10px;
+	float: left;
+	text-align: center;
+	line-height: 150px;
+}

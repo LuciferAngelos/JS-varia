@@ -1,0 +1,119 @@
+.slider{
+	width: 80vw;
+	height: 600px;
+	margin: 20px auto;
+	border: 2px solid black;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	-ms-align-items: center;
+	align-items: center;
+	position: relative;
+}
+
+.slider-image-wrapper{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	-ms-align-items: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.slider-image{
+	width: 70%;
+	height: 450px;
+	cursor: pointer;
+	transition: .7s;
+	display: none;
+}
+
+.image{
+	height: 100%;
+	width: 100%;
+	filter: grayscale(100%);
+}
+
+.image:hover{
+	filter: grayscale(0);
+	transition: .7s;
+}
+
+.active{
+	display: block;
+}
+
+.disabled{
+	display: none;
+}
+
+.slider-dots-wrapper{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.slider-dots{
+	height: 20px;
+	width: 20px;
+	border-radius: 100%;
+	margin: 10px 10px;
+	cursor: pointer;
+	background-color: black;
+}
+
+.slider-dots-active:hover{
+	opacity: .9;
+}
+
+.slider-dots-active{
+	background-color: orange;
+}
+
+.control-buttons{
+	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.button-backward, .button-forward{
+	text-transform: uppercase;
+	font-size: 20px;
+	position: absolute;
+	border: 1px solid grey;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #e3e3e3;
+	cursor: pointer;
+}
+
+.button-backward{
+	top: -300px;
+	left: 45px;
+}
+
+.button-forward{
+	top: -300px;
+	right: 45px;
+}

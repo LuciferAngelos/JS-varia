@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Следим глазами за курсором</title>
+</head>
+<body>
+	<div class="y-1">
+		<div class="y-2">
+			
+		</div>
+	</div>
+	<div class="y-3">
+		<div class="y-4">
+			
+		</div>
+	</div>
+
+
+
+	<style>
+		.y-1{
+			width: 100px;
+			height: 100px;
+			border-radius: 100%;
+			border: 3px solid black;
+			position: relative;
+			float: left;
+		}
+
+		.y-2{
+			width: 30px;
+			height: 30px;
+			background-color: #000;
+			position: absolute;
+			left: 70px;		/*родитель 100пх - дочерний 30 - получаем 70 (чтобы переместить к правому краю)*/
+			bottom: 35px;
+			border-radius: 100%
+		}
+		.y-3{
+			width: 100px;
+			height: 100px;
+			border-radius: 100%;
+			border: 3px solid black;
+			position: relative;
+			float: left;
+		}
+
+		.y-4{
+			width: 30px;
+			height: 30px;
+			background-color: #000;
+			position: absolute;
+			left: 70px;		/*родитель 100пх - дочерний 30 - получаем 70 (чтобы переместить к правому краю)*/
+			bottom: 35px;
+			border-radius: 100%
+		}
+	</style>
+	<script>
+		//Следим глазами за курсором
+
+		document.onmousemove = function(event){
+			let x = event.x - 50;		//находим центр глаза (100пх родителя, значит центр на 50пх)
+			let y = event.y - 50;		//находим центр глаза (100пх родителя, значит центр на 50пх)
+
+			console.log(`координаты ${x} и ${y}`);
+
+			document.querySelector('.y-1').style.transform = 'rotate(' + 57.2958 * arcctg(x,y) + 'deg)';		// Первый глаз57.2958 - переводим из радиан в градусы
+			document.querySelector('.y-3').style.transform = 'rotate(' + 57.2958 * arcctg(x - 116,y) + 'deg)';		//Второй глаз. 116 - 100 (ширина элемента - 16 его границы 3 пх со всех сторон). 57.2958 - переводим из радиан в градусы
+
+			function arcctg(x, y){
+				if(x > 0 && y > 0) return Math.PI/2 - Math.atan(x / y);
+				if(x < 0 && y > 0) return Math.PI/2 - Math.atan(x / y);
+				if(x < 0 && y < 0) return Math.PI + Math.atan(y / x);
+				if(x > 0 && y < 0) return 3 * Math.PI / 2 + Math.abs(Math.atan(x / y));
+			}
+		}
+	</script>
+</body>
+</html>

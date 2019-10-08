@@ -1,0 +1,129 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+body{
+	transition: all ease 1s;
+}
+
+.c-hamburger{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 96px;
+	height: 96px;
+	font-size: 0;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.c-hamburger:focus{
+	outline: none;		/*отключаем обводку, когда элемент в фокусе*/
+}
+
+.c-hamburger span{
+	display: block;
+	position: absolute;
+	top: 44px;
+	left: 18px;
+	right: 18px;
+	height: 8px;
+	background-color: #fff;
+}
+
+.c-hamburger span::before, .c-hamburger span::after{
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 8px;
+	background-color: #fff;
+	content: '';
+}
+
+.c-hamburger span::before{
+	top: -20px;
+}
+
+.c-hamburger span::after{
+	bottom: -20px;
+}
+
+.c-hamburger-line{
+	background-color: #cb0032;
+}
+
+.c-hamburger-line span{
+	transition: background 0s 0.3s;
+}
+
+.c-hamburger-line span::before, .c-hamburger-line span::after{
+	transition-duration: .3s, .3s;
+	transition-delay: .3s, 0; 
+}
+
+.c-hamburger-line span::before{
+	transition-property: top, transform 		/*отслеживаем свойство */
+}
+
+.c-hamburger-line span::after{
+	transition-property: bottom, transform;
+}
+
+.c-hamburger-line.is-active{
+	background-color: green;
+}
+
+.c-hamburger-line.is-active span{
+	background:none;
+}
+
+.c-hamburger-line.is-active span::before{
+	top: 0;
+	transform: rotate(-45deg);
+}
+
+.c-hamburger-line.is-active span::after{
+	bottom: 0;
+	transform: rotate(45deg);
+}
+
+.c-hamburger-line.is-active span::before, .c-hamburger-line.is-active span::after{
+	transition-delay: 0s, .3s;
+}
+
+#menu{
+	width: 300px;
+	margin-left: -204px;  /*300-94*/
+	background-color: #fbf0ff;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	transition: all ease 1s;
+	z-index: 9999;
+}
+
+#menu.nav-active{
+	margin-left: 0;
+}
+
+.container{
+	width: 80%;
+	min-width: 1000px;
+	min-width: 30px auto;
+	text-align: center;
+}
+
+.body-active{
+	margin-left: 300px;
+}
+

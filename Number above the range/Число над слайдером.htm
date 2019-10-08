@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Число над слайдером</title>
+</head>
+<body>
+	<div class="container">
+		<div class="site-header"></div>
+		<h1>Number on range</h1>
+		<div class="range">
+			<div class="range-num"></div>
+			<input type="range" class="number" min="0" max="300" value="0">
+		</div>
+	</div>
+
+	<style>
+		.number{
+			width: 300px;
+		}
+		.range{
+			width: 302px;
+			height: 50px;
+			/*border: 1px solid #000;*/
+			position: relative;
+		}
+		.range input[type='range']{
+			position: absolute;
+			bottom: 0;
+		}
+		.range > .range-num{
+			width: 20px;
+			height: 20px;
+			/*border: 1px solid #000;*/
+			position: absolute;
+			left: -10;
+			top: 0;
+		}
+
+	</style>
+
+	<script>
+		let range = document.querySelector('.number');
+		let rangeNum = document.querySelector('.range-num');
+		range.oninput = function(){
+			// console.log(this.value);
+			rangeNum.style.left = this.value - 10 + 'px';		//-10 - поправка небольшая, чтобы не было накопления. Передвигаем блок за курсором
+			rangeNum.innerHTML = this.value;		//выводим цифры в блоке
+		};
+	</script>
+</body>
+</html>
