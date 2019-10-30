@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>Responsive 3D slider</title>
+	<link rel="stylesheet" href="swiper.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/1.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/2.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/3.jpeg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/4.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/5.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/6.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/7.png" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/8.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      			<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="imgBx">
+	      		<img src="src/9.jpg" alt="">
+	      		<div class="details">
+	      			<h3>Just a picture <br>
+	      				<span>Design!</span></h3>
+	      		</div>
+	      	</div>
+	      </div>
+	    </div>
+	    <!-- Add Pagination -->
+	    <div class="swiper-pagination"></div>
+	</div>
+	
+
+	<script src="swiper.min.js"></script>
+	<script>var swiper = new Swiper('.swiper-container', {
+		effect: 'coverflow',
+		grabCursor: true,
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		coverflowEffect: {
+		rotate: 50,		//размах поворота
+		stretch: 0,
+		depth: 100,		//глубина слайдера
+		modifier: 1,		//повороты
+		slideShadows : true,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+		},
+});
+	</script>
+</body>
+</html>
