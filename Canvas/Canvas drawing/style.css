@@ -1,0 +1,26 @@
+body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+#canvas{
+	z-index: 999;
+	height: 100%;
+}
+.wrapper{
+	user-select: none;
+	cursor: default;
+	width: 565px;
+	height: 56px;
+	position: absolute;
+	font-size: 56px;
+	left: 33%;
+	top:  40%;
+	right: 0;
+	bottom: 0;
+	color: lightgrey;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+}
