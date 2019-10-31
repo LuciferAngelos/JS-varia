@@ -1,0 +1,14 @@
+.halloween{
+    height: 64px;
+    width: 64px;
+    margin: 29px;
+    padding: 0;
+    border: 2px solid orange;
+    background: url(iconfinder_Pumpkin-Lamp_02_1531896.png) no-repeat;
+    background-size: 64px;
+}
+
+.halloween-active{
+    background: url(iconfinder_Pumpkin-Lamp_01_1531889.png) no-repeat;
+    background-size: 64px;
+}
