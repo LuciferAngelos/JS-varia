@@ -5,8 +5,8 @@
 
 		w, h,
 		resize = function () {		//адаптив
-			let w = canvasBody.width = window.innerWidth;
-			let h = canvasBody.height = window.innerHeight;
+			w = canvasBody.width = window.innerWidth;
+			h = canvasBody.height = window.innerHeight;
 		},
 		pi = Math.PI,
 		pi2 = pi * 2,
@@ -14,10 +14,12 @@
 		tick = 0,
 		opts = {
 			canvas: {
-				amount: 10,
-				bgc: 'rgba(20,20,20,1)'
+				amount: 20,
+				bgc: 'rgba(20,20,20,0.2)'
 			},
 			size: 10,
+			minSpeed: 2,
+			addedSpeed: 2
 		},
 		Colors = [
 			"#2ecc71", //green
@@ -35,23 +37,42 @@
 			this.acc = new Vector2();
 			this.speed = new Vector2();
 			this.color = Colors[Math.floor(Math.random() * Colors.length)];
-			this.maxSpeed;
+			this.maxSpeed = opts.minSpeed + Math.random() * opts.addedSpeed;
 		};
 
 	Particle.prototype.update = function () {
 		this.speed.add(this.acc);		//в скорость добавляем ускорение
 		this.pos.add(this.speed);		//потом к этой позиции добавляем скорость
-		// this.acc.set(0);
+		this.acc.set(0);
 
 		return this;
 	}
 	Particle.prototype.render = function () {
 		canvas.fillStyle = this.color;
-		canvas.fillRect(this.pos.x, this.pos.y, opts.size, opts.size);
+		// canvas.fillRect(this.pos.x, this.pos.y, opts.size, opts.size);
+		let d = this.speed.direction();
+		canvas.beginPath();
+		canvas.moveTo(Math.cos(d)*opts.size + this.pos.x, Math.sin(d) * opts.size + this.pos.y);		//передвигаем канвас к позиции плюс дирекшн
+		canvas.lineTo(Math.cos(d+piD2) * (opts.size / 2) + this.pos.x, Math.sin(d + piD2) * (opts.size / 2) + this.pos.y);
+		canvas.lineTo(Math.cos(d-piD2) * (opts.size / 3) + this.pos.x, Math.sin(d - piD2) * (opts.size / 3) + this.pos.y);
+		canvas.lineTo(Math.cos(d)*opts.size + this.pos.x, Math.sin(d) * opts.size + this.pos.y);
+		canvas.closePath();
+		canvas.fill()
+
 	}
 	Particle.prototype.border = function () { }
-	Particle.prototype.lookFor = function () { }
-	Particle.prototype.force = function () { }		//принудительное ускорение
+	Particle.prototype.lookFor = function (tar) {		//следит за мышью
+		let dir = tar.copy()
+		dir.sub(this.pos);
+		let steer = dir.sub(this.speed);
+		steer.limit(this.maxSpeed);		//ограничивает макс. скорость
+		this.force(steer);
+		return this;
+	 }
+	Particle.prototype.force = function (f) {		//принудительное ускорение
+		this.acc.add(f)
+		return this
+	 }		
 
 	function populate() {
 		particles = [];
@@ -67,12 +88,15 @@
 		canvas.fillStyle = opts.canvas.bgc;
 		canvas.fillRect(0, 0, w, h)
 		particles.map(function (P) {
-			P.update().render()
+			P.lookFor(Mouse).update().render()
 		})
 		window.requestAnimationFrame(loop);
 	}
 
 	window.addEventListener('resize', resize);
+	window.addEventListener('mousemove', (e) => {
+		Mouse.set(e.pageX, e.pageY)
+	})
 
 	resize()
 	setup()
