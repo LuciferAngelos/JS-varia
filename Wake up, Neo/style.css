@@ -1,0 +1,26 @@
+body{
+	background-color: #080303;
+}
+.wrapper{
+	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.icon{
+	border: 1px solid black;
+	border-radius: 35%;
+}
+
+.out{
+	font-size: 20px;
+	color: #168004;
+	text-shadow: 0px 0px 5px #07867F;
+	font-family: monospace;
+}
